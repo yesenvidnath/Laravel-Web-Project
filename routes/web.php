@@ -31,4 +31,16 @@ Route::get('/products', function () {
     return view('pages.product');
 });
 
-Route::get('/students',[StudentsController::class, 'index'])->name ('home');
+// Route::get('/students',[StudentsController::class, 'index'])->name ('home');
+
+
+// Adding Nested routs for in the application
+Route::group(['prefix' => 'students'], function () {
+    Route::get('/', [StudentsController::class, 'index'])->name('student');
+    Route::post('/save', [StudentsController::class, 'save'])->name('student.save');
+    Route::get('/{stu_id}/delete', [StudentsController::class, 'delete'])->name('student.delete');
+    Route::get('/{stu_id}/edit', [StudentsController::class, 'edit'])->name('student.edit');
+    Route::post('/{stu_id}/update', [StudentsController::class, 'update'])->name('student.update');
+    Route::get('/{stu_id}/manage', [StudentsController::class, 'vewRecords'])->name('student.manage');
+    Route::post('/saveRecord', [StudentsController::class, 'saveRecord'])->name('student.saveRecord');
+});

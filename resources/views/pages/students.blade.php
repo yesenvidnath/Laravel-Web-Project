@@ -23,7 +23,7 @@
 
                         @foreach ( $students as $key => $student )
 
-                        <tr>
+                          <tr>
                             <td scope="col">{{ ++$key }}</td>
                             <td scope="col">{{ $student->name }}</td>
                             <td scope="col">{{ $student->address }}</td>
