@@ -20,4 +20,5 @@ class Students extends Model
         'nic',
         'status',
     ];
+
 }
